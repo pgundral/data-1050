@@ -1,0 +1,6 @@
+name: data1050
+channels:
+- conda-forge
+dependencies:
+
+prefix: /opt/conda
