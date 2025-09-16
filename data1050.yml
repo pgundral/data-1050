@@ -2,5 +2,8 @@ name: data1050
 channels:
 - conda-forge
 dependencies:
-
+- mysql-connector-python
+- python-dotenv
+- pandas
+- fsspec
 prefix: /opt/conda
