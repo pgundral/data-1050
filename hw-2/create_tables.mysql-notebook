@@ -1,0 +1,129 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "\\about\nUSE data1050f25;\n\n-- course\nCREATE TABLE course (\n    course_id VARCHAR(10) PRIMARY KEY,\n    title VARCHAR(128),\n    dept_name VARCHAR(128),\n    credits INT,\n    FOREIGN KEY(dept_name) REFERENCES department(dept_name)\n);\n\n-- prereq\nCREATE TABLE prereq (\n    course_id VARCHAR(128),\n    prereq_id VARCHAR(128),\n    PRIMARY KEY(course_id,prereq_id),\n    FOREIGN KEY(course_id) REFERENCES course(course_id),\n    FOREIGN KEY(prereq_id) REFERENCES course(course_id)\n);\n\n-- advisor\nCREATE TABLE advisor (\n    s_id VARCHAR(128) PRIMARY KEY,\n    i_id VARCHAR(128),\n    FOREIGN KEY(s_id) REFERENCES student(ID)\n);\n\n-- classroom\nCREATE TABLE classroom (\n    building VARCHAR(255),\n    room_no INT,\n    capacity INT,\n    PRIMARY KEY(building,room_no)\n);",
+    "options": {
+        "tabSize": 4,
+        "indentSize": 4,
+        "insertSpaces": true,
+        "defaultEOL": "LF",
+        "trimAutoWhitespace": true
+    },
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 35,
+                    "column": 3
+                },
+                "position": {
+                    "lineNumber": 35,
+                    "column": 3
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 7,
+                "column": 1
+            },
+            "firstPositionDeltaTop": -19
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "content": "Welcome to the MySQL Shell - DB Notebook.\n\nPress Cmd+Enter to execute the code block.\n\nExecute \\sql to switch to SQL, \\js to JavaScript and \\ts to TypeScript mode.\nExecute \\help or \\? for help;",
+                            "language": "ansi"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 6
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 35,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 16
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 16,
+                            "length": 204
+                        },
+                        "contentStart": 28,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 220,
+                            "length": 243
+                        },
+                        "contentStart": 232,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 463,
+                            "length": 141
+                        },
+                        "contentStart": 476,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 604,
+                            "length": 138
+                        },
+                        "contentStart": 619,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
