@@ -1,0 +1,357 @@
+{
+    "type": "MySQLNotebook",
+    "version": "1.0",
+    "caption": "DB Notebook",
+    "content": "USE data1050f25;\nSELECT ID FROM student WHERE dept_name = \"DSI\";\nSELECT ID from takes \nWHERE course_id = 'Data1050'\nAND semester = 'Fall'\nAND year = 2023;\nSELECT s.ID, s.name\nFROM student as s INNER JOIN takes as t\nON s.ID = t.ID\nWHERE s.dept_name = 'DSI'\nAND t.course_id = 'Data1050'\nAND t.semester = 'Fall'\nAND t.year = 2023;\n",
+    "options": {},
+    "viewState": {
+        "cursorState": [
+            {
+                "inSelectionMode": false,
+                "selectionStart": {
+                    "lineNumber": 14,
+                    "column": 1
+                },
+                "position": {
+                    "lineNumber": 14,
+                    "column": 1
+                }
+            }
+        ],
+        "viewState": {
+            "scrollLeft": 0,
+            "firstPosition": {
+                "lineNumber": 3,
+                "column": 1
+            },
+            "firstPositionDeltaTop": 89
+        },
+        "contributionsState": {
+            "editor.contrib.folding": {},
+            "editor.contrib.wordHighlighter": false
+        }
+    },
+    "contexts": [
+        {
+            "state": {
+                "start": 1,
+                "end": 1,
+                "language": "mysql",
+                "result": {
+                    "type": "text",
+                    "text": [
+                        {
+                            "type": 2,
+                            "index": 0,
+                            "resultId": "bbde6350-3731-462d-ddb7-8bdfb5b3516a",
+                            "content": "OK, 0 records retrieved in 1.075ms"
+                        }
+                    ]
+                },
+                "currentHeight": 28,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 16
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    },
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 16,
+                            "length": 0
+                        },
+                        "contentStart": 15,
+                        "state": 3
+                    }
+                ]
+            },
+            "data": []
+        },
+        {
+            "state": {
+                "start": 2,
+                "end": 2,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "13b93734-23c7-4abf-fe63-5a9d141eb576"
+                    ]
+                },
+                "currentHeight": 152,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 47
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "cdbc7db0-04dc-4d43-84d6-4133b2821f8f",
+                    "resultId": "13b93734-23c7-4abf-fe63-5a9d141eb576",
+                    "rows": [
+                        {
+                            "0": "1238"
+                        },
+                        {
+                            "0": "1333"
+                        },
+                        {
+                            "0": "1845"
+                        },
+                        {
+                            "0": "2142"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ID",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": true,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 4 records retrieved in 0.305ms"
+                    },
+                    "totalRowCount": 4,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT ID FROM student WHERE dept_name = \"DSI\"",
+                    "updatable": true,
+                    "fullTableName": "student"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 3,
+                "end": 6,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "0a303be5-d794-42b8-a71c-120ab5eb951a"
+                    ]
+                },
+                "currentHeight": 284,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 89
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "cdbc7db0-04dc-4d43-84d6-4133b2821f8f",
+                    "resultId": "0a303be5-d794-42b8-a71c-120ab5eb951a",
+                    "rows": [
+                        {
+                            "0": "1122"
+                        },
+                        {
+                            "0": "1845"
+                        },
+                        {
+                            "0": "1888"
+                        },
+                        {
+                            "0": "1934"
+                        },
+                        {
+                            "0": "1970"
+                        },
+                        {
+                            "0": "1999"
+                        },
+                        {
+                            "0": "2142"
+                        },
+                        {
+                            "0": "2143"
+                        },
+                        {
+                            "0": "2946"
+                        },
+                        {
+                            "0": "3303"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ID",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 10 records retrieved in 2.022ms"
+                    },
+                    "totalRowCount": 10,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT ID from takes \nWHERE course_id = 'Data1050'\nAND semester = 'Fall'\nAND year = 2023",
+                    "updatable": false,
+                    "fullTableName": "takes"
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 7,
+                "end": 13,
+                "language": "mysql",
+                "result": {
+                    "type": "resultIds",
+                    "list": [
+                        "81753b5b-f44b-48b8-917c-50916c65d0f7"
+                    ]
+                },
+                "currentHeight": 108,
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 172
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": [
+                {
+                    "tabId": "cdbc7db0-04dc-4d43-84d6-4133b2821f8f",
+                    "resultId": "81753b5b-f44b-48b8-917c-50916c65d0f7",
+                    "rows": [
+                        {
+                            "0": "1845",
+                            "1": "Jane Chen"
+                        },
+                        {
+                            "0": "2142",
+                            "1": "Sabrina Zhou"
+                        }
+                    ],
+                    "columns": [
+                        {
+                            "title": "ID",
+                            "field": "0",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        },
+                        {
+                            "title": "name",
+                            "field": "1",
+                            "dataType": {
+                                "type": 17,
+                                "characterMaximumLength": 65535,
+                                "flags": [
+                                    "BINARY",
+                                    "ASCII",
+                                    "UNICODE"
+                                ],
+                                "needsQuotes": true,
+                                "parameterFormatType": "OneOrZero"
+                            },
+                            "inPK": false,
+                            "nullable": false,
+                            "autoIncrement": false
+                        }
+                    ],
+                    "executionInfo": {
+                        "text": "OK, 2 records retrieved in 0.813ms"
+                    },
+                    "totalRowCount": 2,
+                    "hasMoreRows": false,
+                    "currentPage": 0,
+                    "index": 0,
+                    "sql": "SELECT s.ID, s.name\nFROM student as s INNER JOIN takes as t\nON s.ID = t.ID\nWHERE s.dept_name = 'DSI'\nAND t.course_id = 'Data1050'\nAND t.semester = 'Fall'\nAND t.year = 2023",
+                    "updatable": false,
+                    "fullTableName": ""
+                }
+            ]
+        },
+        {
+            "state": {
+                "start": 14,
+                "end": 14,
+                "language": "mysql",
+                "currentSet": 1,
+                "statements": [
+                    {
+                        "delimiter": ";",
+                        "span": {
+                            "start": 0,
+                            "length": 0
+                        },
+                        "contentStart": 0,
+                        "state": 0
+                    }
+                ]
+            },
+            "data": []
+        }
+    ]
+}
