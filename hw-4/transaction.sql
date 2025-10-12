@@ -2,7 +2,7 @@ USE data1050f25;
 -- 5. Write a SQL instruction so that all students with ID 1238 and 1333 who have a 
 -- null grade in any course, have their grade changed to 'A'.
 
--- start transaction
+-- start transaction so changes aren't permanent yet
 START TRANSACTION;
 
 -- make a CTE to store courses changed

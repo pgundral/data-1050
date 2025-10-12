@@ -8,7 +8,8 @@ AND year = 2023
 AND semester LIKE '%Fall%';
 
 -- 2. Find the id, title, section_id, and instructor name of all courses being taught in Fall 2023
-SELECT course.course_id, course.title, section.sec_id, instructor.name
+SELECT course.course_id, course.title, section.sec_id, 
+    instructor.name
 FROM course, section, teaches, instructor
 WHERE course.course_id = section.course_id
 AND section.course_id = teaches.course_id
