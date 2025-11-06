@@ -1,7 +1,7 @@
 -- stored procedure to retrieve (speciality, experience) <--
 -- given (ssn) : from physicians
 DELIMITER // 
-CREATE PROCEDURE get_physician_info (
+CREATE procedure get_physician_info (
     IN ssn CHAR(11)
     OUT speciality VARCHAR(128),
         experience NUMERIC(2,0)
