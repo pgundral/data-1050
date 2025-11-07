@@ -1,13 +1,19 @@
+USE hospital;
 -- 1.
 -- Find the physicians (ssn) who have most prescribed drugs which caused alerts 
 -- (due to possible adverse interaction with a previously prescribed drug, not necessarily by the same physician).
 WITH alert_ranks AS (
-    SELECT DISTINCT p.ssn, COUNT(*)
+    SELECT p.ssn, COUNT(*) as count
     FROM physicians AS p
     INNER JOIN alerts AS a
     ON p.ssn = a.physician_id
     GROUP BY p.ssn
 )
+
+SELECT ssn, DENSE_RANK() OVER (
+    ORDER BY count DESC
+) as rank
+FROM alert_ranks;
 
 -- 2.
 -- Find the physicians (ssn) who have prescribed two drugs to the same patient which have adverse interactions.

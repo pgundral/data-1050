@@ -40,6 +40,9 @@ CREATE TABLE hospital.prescriptions (
     FOREIGN KEY(drug_name) REFERENCES hospital.drugs(name)
 );
 
+ALTER TABLE hospital.prescriptions
+ADD INDEX idx_patient_drug (patient_id, drug_name);
+
 CREATE TABLE hospital.adverse_interactions (
     drug_name VARCHAR(128), 
     drug_name_2 VARCHAR(128), 
@@ -59,6 +62,16 @@ CREATE TABLE hospital.alerts (
     FOREIGN KEY(patient_id, drug1) REFERENCES hospital.prescriptions(patient_id, drug_name),
     FOREIGN KEY(patient_id, drug2) REFERENCES hospital.prescriptions(patient_id, drug_name)
 );
+
+ALTER TABLE hospital.alerts
+ADD CONSTRAINT fk_alerts_prescriptions
+FOREIGN KEY (patient_id, drug1)
+REFERENCES hospital.prescriptions (patient_id, drug_name);
+
+ALTER TABLE hospital.alerts
+ADD CONSTRAINT fk_alerts_prescriptions_2
+FOREIGN KEY (patient_id, drug2)
+REFERENCES hospital.prescriptions (patient_id, drug_name);
 
 CREATE TABLE hospital.pharmacy_fills (
     prescription_id NUMERIC(3,0),
@@ -91,16 +104,3 @@ CREATE TABLE hospital.contracts (
     FOREIGN KEY(pharmacy_id) REFERENCES hospital.pharmacies(id),
     FOREIGN KEY(drug_name) REFERENCES hospital.drugs(name)
 );
-
-ALTER TABLE hospital.prescriptions
-ADD INDEX idx_patient_drug (patient_id, drug_name);
-
-ALTER TABLE hospital.alerts
-ADD CONSTRAINT fk_alerts_prescriptions
-FOREIGN KEY (patient_id, drug1)
-REFERENCES hospital.prescriptions (patient_id, drug_name);
-
-ALTER TABLE hospital.alerts
-ADD CONSTRAINT fk_alerts_prescriptions_2
-FOREIGN KEY (patient_id, drug2)
-REFERENCES hospital.prescriptions (patient_id, drug_name);
