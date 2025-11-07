@@ -32,24 +32,27 @@ AND p2.drug_name IN (
 -- 3.
 -- Find the physicians who have prescribed most drugs supplied by company DRUGXO.
 WITH drugxo_fills AS (
-    SELECT pf.prescription_id
-    FROM pharmacy_fills as pf, contracts as con, companies as comp
+    SELECT physician_id, COUNT(*) as cnt
+    FROM pharmacy_fills as pf, contracts as con, 
+         companies as comp, prescriptions as p
     WHERE con.company_id = comp.id
     AND pf.pharmacy_id = con.pharmacy_id
     AND comp.name LIKE "%DRUGXO%"
+    AND pf.prescription_id = p.id
+    GROUP BY p.physician_id
 )
 
-SELECT DISTINCT physician_id
-FROM prescriptions as p
-JOIN drugxo_fills as dgxo
-ON p.id = dgxo.prescription_id;
+SELECT physician_id, DENSE_RANK() OVER (
+    ORDER BY cnt DESC
+) as drugxo_rank
+FROM drugxo_fills;
 
 -- 4.
 -- For each drug supplied by company PHARMASEE display the price (per unit of quantity) 
 -- charged by that company for that drug along with the average price charged for that drug 
 -- (by companies, not pharmacies). Note: As it happens in the data we supplied each drug is supplied 
 -- by only one company, but your query should not be based on that.
-SELECT (price/quantity) as price_per_unit, AVG(price/quantity) OVER (
+SELECT drug_name, (price/quantity) as price_per_unit, AVG(price/quantity) OVER (
     PARTITION BY drug_name
 ) as avg_price_per_unit
 FROM contracts
@@ -59,7 +62,7 @@ WHERE company_id = (SELECT id FROM companies WHERE name LIKE "%PHARMASEE%");
 -- For each drug and for each pharmacy, find the percentage of the markup (per unit of quantity) for 
 -- that drug by that pharmacy.
 -- get revenue of drug
-CREATE VIEW revenue AS
+CREATE OR REPLACE VIEW revenue AS
     SELECT p.id, pharmacy_id, drug_name, 
     SUM(quantity) OVER (
         PARTITION BY pharmacy_id, drug_name
@@ -71,7 +74,7 @@ CREATE VIEW revenue AS
     JOIN prescriptions as p
     ON p.id = pf.prescription_id;
 
-CREATE VIEW total_cost AS
+CREATE OR REPLACE VIEW total_cost AS
     SELECT pharmacy_id, drug_name,
     SUM(quantity) OVER (
         PARTITION BY pharmacy_id, company_id
