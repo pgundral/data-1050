@@ -14,17 +14,12 @@ BEGIN
     -- get all of the possible interactions raised
     -- using DISTINCT only for p.drug_name (to avoid duplicates when a 
     -- drug was prescribed multiple times before)
-    SELECT DISTINCT
-           NEW.date, 
-           p.drug_name, 
-           NEW.drug_name,
-           NEW.patient_id, 
-           NEW.physician_id
-    FROM   prescriptions as p
-    JOIN   adverse_interactions as ai
-    ON     ai.drug_name = p.drug_name
-    WHERE  NEW.drug_name = ai.drug_name_2
-    AND    NEW.patient_id = p.patient_id;
+    SELECT DISTINCT NEW.date, p.drug_name, NEW.drug_name, NEW.patient_id, NEW.physician_id
+    FROM   prescriptions as p, 
+           adverse_interactions as ai
+    WHERE  NEW.patient_id = p.patient_id
+    AND    ( (ai.drug_name = p.drug_name AND ai.drug_name_2 = NEW.drug_name)
+    OR       (ai.drug_name = NEW.drug_name AND ai.drug_name_2 = p.drug_name) );
 END //
 
 DELIMITER ;
