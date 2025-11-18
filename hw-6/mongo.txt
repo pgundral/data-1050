@@ -1,0 +1,34 @@
+db.movies.insertMany([{
+    name: "The Shawshank Redemption",
+    leads: ["Tim Robbins", "Morgan Freeman", "Bob Gunton"],
+    release_year: 1994
+},
+{
+    name: "The Godfather",
+    leads: ["Marlon Brando", "Al Pacino", "James Caan"],
+    release_year: 1972
+},
+{
+    name: "The Dark Knight",
+    leads: ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+    release_year: 2008
+},
+{
+    name: "The Godfather Part II",
+    leads: ["Al Pacino", "Robert Duvall", "Diane Keaton"],
+    release_year: 1974
+},
+{
+    name: "12 Angry Men",
+    leads: ["Martin Balsam", "John Fiedler", "Lee J. Cobb"],
+    release_year: 1957
+},
+{
+    name: "The Lord of the Rings: The Return of the King",
+    leads: ["Noel Appleby", "Ali Astin", "Sean Astin"],
+    release_year: 2003
+}])
+
+db.movies.find({release_year: {$gt: 2000}})
+
+db.movies.deleteOne({name: "The Godfather Part II"})
