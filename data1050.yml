@@ -4,6 +4,8 @@ channels:
 dependencies:
 - mysql-connector-python
 - python-dotenv
+- numpy
 - pandas
 - fsspec
+- pymongo
 prefix: /opt/conda
