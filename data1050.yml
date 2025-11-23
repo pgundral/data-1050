@@ -4,6 +4,7 @@ channels:
 dependencies:
 - mysql-connector-python
 - python-dotenv
+- ipykernel
 - numpy
 - pandas
 - fsspec
