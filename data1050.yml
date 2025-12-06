@@ -10,4 +10,7 @@ dependencies:
 - fsspec
 - pymongo
 - pyspark
+- openjdk=17
+- findspark
+- scipy
 prefix: /opt/conda
